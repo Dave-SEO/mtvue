@@ -19,7 +19,7 @@
       <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
       <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
     </ul>
-    <h3>Ecosystem</h3>
+    <h3 v-n='2'>zz</h3>
     <ul>
       <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
       <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
@@ -27,15 +27,29 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <!-- <button @click="increment">点击++</button>
+    <button @click="decrement">点击--</button>
+    Vuex {{$store.state.count}} -->
+    <!-- 多实例vuex -->
+    Vuex-a: {{$store.state.money.money}}
+    vue-b: {{$store.state.count.count}}
+    <button @click="add(2)">多实例 ++</button>
   </div>
 </template>
 
 <script>
+import '@/assets/n'
+import {mapActions} from 'vuex'
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  // methods: mapActions([
+  //   'increment',
+  //   'decrement'
+  // ])
+  methods: mapActions('money',['add','decrement'])
 }
 </script>
 
